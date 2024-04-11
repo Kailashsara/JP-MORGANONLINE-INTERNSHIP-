@@ -1,0 +1,49 @@
+def create_post(username, content):
+    # Assume there's a function to authenticate the user
+    authenticated = authenticate(username)
+    if authenticated:
+        # Create a post
+        post_id = generate_post_id()
+        timestamp = get_current_timestamp()
+        post = {
+            "post_id": post_id,
+            "username": username,
+            "content": content,
+            "timestamp": timestamp
+        }
+        # Assume there's a function to save the post to a database
+        save_post_to_database(post)
+        print("Post created successfully!")
+    else:
+        print("Authentication failed. Unable to create post.")
+
+def authenticate(username):
+    # Implement authentication logic here
+    # For simplicity, let's assume all users are authenticated
+    return True
+
+def generate_post_id():
+    # Generate a unique post ID
+    # For simplicity, let's use a random number
+    import random
+    return random.randint(1000, 9999)
+
+def get_current_timestamp():
+    # Get the current timestamp
+    # For simplicity, let's use a string representing the current time
+    from datetime import datetime
+    return str(datetime.now())
+
+def save_post_to_database(post):
+    # Save the post to a database
+    # For simplicity, let's just print the post details
+    print("Post ID:", post["post_id"])
+    print("Username:", post["username"])
+    print("Content:", post["content"])
+    print("Timestamp:", post["timestamp"])
+
+# Example usage
+username = "john_doe"
+content = "Hello, world! This is my first post on MySocial."
+create_post(username, content)
+
